@@ -1,15 +1,14 @@
-# ¡Hola! 👋 Soy David
-### 👨‍💻 Desarrollador apasionado por:
-- 🌐 **Desarrollo Web:** JavaScript, React, Node.js
-- 🐍 **Python:** Scripts, Automatización y Ciberseguridad
+# ¡Hola! 👋 Soy David (a.k.a @viajatech)
+### 👨‍💻 Creador de contenido apasionado por:
+- 🐍 **Python:** Ciberseguridad,Inteligencia artificial entre otros.
 - 📚 **Aprendizaje continuo:** Siempre explorando nuevas tecnologías
 
 ### 🚀 Mis Proyectos Destacados:
-- 🔐 [CyberSecure](https://github.com/usuario/CyberSecure): Herramienta para auditorías de seguridad.
-- 🌎 [EcoTravel](https://github.com/usuario/EcoTravel): Webapp para turismo ecológico.
-- 🧠 [NeuralNetSim](https://github.com/usuario/NeuralNetSim): Simulador de redes neuronales.
+- 🔐 [Protector](https://github.com/viajatech/Protector): Herramienta para encriptar tus carpetas y archivos
+- 🌎 [Hyde](https://github.com/viajatech/Hyde): GUI para guardar mensajes secretos en imágenes
+- 🧠 [ChatbotMulti](https://github.com/viajatech/ChatBotMulti): Chatbot GUI con Llama 3.2 11B
 
 ### 🌟 ¿Algo más sobre mí?
-- ✍️ Me gusta escribir sobre tecnología en mi blog.
-- 🎮 Aficionado a los videojuegos retro y la ciencia ficción.
-- 📬 **Contáctame:** [Correo](mailto:tuemail@gmail.com) | [LinkedIn](https://linkedin.com/in/tuusuario)
+- ✍️ Me gusta escribir sobre tecnología en mis redes sociales;[Linktree](https://linktr.ee/viajatech)
+- 🎮 Aficionado a los videojuegos futuristas como Cyberpunk 2077 y la ciencia ficción.
+- 📬 **Contáctame:** [Correo](mailto:jettrendy@gmail.com) | 
