@@ -1,5 +1,5 @@
 # ¡Hola! 👋 Soy David (a.k.a @viajatech)
-### 👨‍💻 Creador de contenido apasionado por:
+### 👨‍💻 Creador de contenido y con hobbies como:
 - 🐍 **Python:** Ciberseguridad,Inteligencia artificial entre otros.
 - 📚 **Aprendizaje continuo:** Siempre explorando nuevas tecnologías
 
