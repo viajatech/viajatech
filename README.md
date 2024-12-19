@@ -5,8 +5,8 @@
 
 ### 🚀 Mis Proyectos Destacados:
 - 🔐 [Protector](https://github.com/viajatech/Protector): Herramienta para encriptar tus carpetas y archivos
-- 🌎 [Hyde](https://github.com/viajatech/Hyde): GUI para guardar mensajes secretos en imágenes
-- 🧠 [ChatbotMulti](https://github.com/viajatech/ChatBotMulti): Chatbot GUI con Llama 3.2 11B
+- 🌎 [Hyde](https://github.com/viajatech/Hyde): Interfaz para guardar mensajes secretos en imágenes
+- 🧠 [ChatbotMulti](https://github.com/viajatech/ChatBotMulti): Chatbot con acceso a internet
 
 ### 🌟 ¿Algo más sobre mí?
 - ✍️ Me gusta crear videos sobre tecnología en mis redes sociales;[Linktree](https://linktr.ee/viajatech)
