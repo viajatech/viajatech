@@ -13,4 +13,4 @@
 - 🎮 Aficionado a los videojuegos futuristas como Cyberpunk 2077 y la ciencia ficción.
 - 📬 **Contáctame:** [Correo](mailto:jettrendy@gmail.com).
 
-![](https://github.com/viajatech/viajatech/blob/main/VIAJA%20TECH%20WALL.png).
+![](https://github.com/viajatech/viajatech/blob/main/VIAJA%20TECH%20WALL.png)
