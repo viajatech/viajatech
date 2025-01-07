@@ -6,7 +6,7 @@
 ### 🚀 Mis Proyectos Destacados:
 - 🔐 [Protector](https://github.com/viajatech/Protector): Herramienta para encriptar tus carpetas y archivos
 - 🌎 [Hyde](https://github.com/viajatech/Hyde): Interfaz para guardar mensajes secretos en imágenes
-- 🧠 [Chatbot Inteligente](https://github.com/viajatech/SuperThinkingBot): Chatbot que razona y piensa antes de dar una respuesta.
+- 🧠 [Super Agente](https://github.com/viajatech/SuperThinkingBot): Agente Autónomo A.I con Chatbot que razona,memoriza,controla y automatiza programas de escritorio,con conexíon a internet.
 
 ### 🌟 ¿Algo más sobre mí?
 - ✍️ Me gusta crear videos sobre tecnología en mis redes sociales;[Linktree](https://linktr.ee/viajatech)
