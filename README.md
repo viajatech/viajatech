@@ -10,7 +10,7 @@
 
 | | Repo | One‑liner |
 | :-: | --- | --- |
-| ⚡ | **[TRON ARES](https://github.com/viajatech/ARES)** | Multimedia + Office launcher con descargas turbo, automatización Office y cyber‑HUD IA. |
+| ⚡ | **[TRON ARES](https://github.com/viajatech/ARES)** | Armadura para inteligencia artificial, automatización Office,Música y Videos. |
 | 🏨 | **[Hotelero Plus](https://github.com/viajatech/HoteleroPlus)** | Navaja suiza para operación hotelera: reservas, CRM, analytics y *scheduler* IA‑Ready. |
 | 🤖 | **[Super Agente](https://github.com/viajatech/SuperAgente)** | Agente autónomo que razona, memoriza y orquesta apps de escritorio. |
 | 🔐 | **[Protector](https://github.com/viajatech/Protector)** | Vault CLI para cifrar carpetas con cero fricción. |
