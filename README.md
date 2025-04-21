@@ -39,7 +39,7 @@
 ## 📜 Media & Grants
 
 - **Haiper A.I/Sora Open A.I/Google VEO2 (2024‑25)** – Pionero en generación de vídeos A.I de última generación.  
-- **Anthropic A.I  Credits (2025)** – Pionero en pertencer y probar el agente CLAUDE CODE, uno de los seleccionados a nivel mundial por Anthropic A.I.
+- **Anthropic A.I  Credits (2025)** – Pionero en pertencer y probar el agente CLAUDE CODE, soy uno de los seleccionados a nivel mundial por Anthropic A.I.
 - ** Proyecto Secreto (2026)** – “From Concierge to Cognitive Mesh: AI in Hotels.”
 
 ---
