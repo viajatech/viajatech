@@ -38,9 +38,9 @@
 
 ## 📜 Media & Grants
 
-- **OpenAI Startup Credits (2024‑25)** – LLMs en operación hotelera.  
-- **Hugging Face Expert Acceleration (2025)** – Transformers on‑prem de baja latencia.  
-- **PyCon LATAM Keynote (2026)** – “From Concierge to Cognitive Mesh: AI in Hotels.”
+- **Haiper A.I/SORA OPEN A.I/GOOGLE VEO2 (2024‑25)** – Pionero en generación de vídeos A.I de última generación.  
+- **Anthropic A.I  Credits (2025)** – Pionero en pertencer y probar el agente CLAUDE CODE, uno de los seleccionados a nivel mundial por Anthropic A.I.
+- ** Proyecto Secreto (2026)** – “From Concierge to Cognitive Mesh: AI in Hotels.”
 
 ---
 
