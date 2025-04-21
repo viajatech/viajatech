@@ -2,7 +2,7 @@
 
 > **Tech futurist · Hospitality engineer · AI systems designer · Cyber‑aesthetic storyteller**
 >
-> Creo software y narrativas que fusionan experiencias de huésped, agentes autónomos y estética neón. Mis stacks open‑source funcionan en 🌎 **45 + países** y me han valido créditos tempranos de **Anthropic AI, Harper A.I y GOOGLE A.I* **.
+> Creo software y narrativas que fusionan experiencias de huésped, agentes autónomos y estética neón. Mis stacks open‑source funcionan en 🌎 **45 + países** y me han valido créditos tempranos de **Anthropic AI, Harper A.I y Google A.I* **.
 
 ---
 
