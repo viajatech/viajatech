@@ -46,7 +46,7 @@
 
 ## 🌐 Let’s Connect
 
-- Web → <https://viajatech.com> *(coming soon™)*  
+- Web → <https://> *(coming soon™)*  
 - Twitter/X → [@viajatech](https://twitter.com/viajatech)  
 - Email → <jettrendy@gmail.com>
 
