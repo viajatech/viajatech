@@ -1,17 +1,23 @@
 #!/usr/bin/env python3
 """
-build_assets.py — genera TODOS los SVG del README de perfil de github.com/viajatech.
+build_assets.py — genera TODOS los SVG del README de perfil de github.com/viajatech.   (v2 · 2026-10-12)
 
-Diseño "OBSIDIAN FORGE × Isabella": obsidiana + oro fundido + una brasa ámbar (NUNCA cian/teal/neón azul,
-ni circuitos/cerebros/binario/hexágonos — reglas de marca de David). El texto se convierte a TRAZOS con las
-fuentes del sitio (IBM Plex Sans/Mono, SIL OFL) usando HarfBuzz → se ve idéntico en cualquier dispositivo y
-no depende de fuentes instaladas ni de CSP. Animaciones con SMIL (funcionan dentro de <img> en GitHub).
+Diseño "OBSIDIAN FORGE · el núcleo de viajatech.com": obsidiana + oro fundido + una brasa ámbar (NUNCA cian/teal/azul
+neón, ni circuitos/cerebros/binario/hexágonos: reglas de marca de David). La portada de viajatech.com es un núcleo con siete
+satélites (uno por sección, cada uno con su color) y un cometa que baja hasta la marca; este banner es la misma idea en
+SVG: núcleo, órbita con los siete satélites, una sinapsis que recorre cada satélite y el cometa que aterriza en viajatech.com.
 
-Uso:   python3 tools/build_assets.py            (requiere: pip install --user fonttools brotli uharfbuzz)
-Fuentes: JT_FONTS=<carpeta con sans-300.woff2 y mono-400/500.woff2 de IBM Plex>  (default: tools/fonts/, ignorada por git)
-Salida: assets/*.svg  — editar TEXTOS/COLORES aquí arriba y volver a correr.
+Tipografía "Forja", la del sitio (D-019 de viajatech-web): Unbounded (display), Space Grotesk (texto), JetBrains Mono
+(datos), todas SIL OFL. El texto se convierte a TRAZOS con HarfBuzz → se ve idéntico en cualquier dispositivo y no depende
+de fuentes instaladas ni de CSP. Animaciones SMIL (funcionan dentro de <img> en GitHub; CSS y JS no).
+
+Uso:     python3 tools/build_assets.py            (requiere: pip install --user fonttools brotli uharfbuzz)
+Fuentes: tools/fonts/ (ignorada por git) = copia de viajatech-web/public/fonts: unbounded-latin.woff2,
+         space-grotesk-latin.woff2, jetbrains-mono-latin.woff2 y sus licencias. Otra carpeta: JT_FONTS=<ruta>.
+Salida:  assets/*.svg — textos, colores, satélites y botones se editan aquí arriba y se vuelve a correr. Build determinista.
 """
 import io
+import math
 import os
 import sys
 
@@ -23,25 +29,34 @@ from fontTools.varLib.instancer import instantiateVariableFont
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, "assets")
-FONT_DIR = os.environ.get("JT_FONTS", os.path.join(ROOT, "tools", "fonts"))  # IBM Plex (no se versiona)
+FONT_DIR = os.environ.get("JT_FONTS", os.path.join(ROOT, "tools", "fonts"))
 
-# ── Paleta OBSIDIAN FORGE ────────────────────────────────────────────────────────────────────────
+# ── Paleta OBSIDIAN FORGE (la de viajatech.com, DESIGN.md §2) ───────────────────────────────────
 OBS0, OBS1 = "#060607", "#0E0D0B"          # obsidiana
 GOLD, GOLD_HI, GOLD_DEEP = "#D8B15F", "#F0D890", "#9C7A33"
 EMBER = "#FF7A1A"                           # brasa (con moderación)
 IVORY, WARM, DIM = "#F2EDE4", "#8A8478", "#4A463F"
-# variantes para el tema CLARO de GitHub (encabezados y pie)
-L_GOLD, L_INK, L_WARM = "#8A6420", "#1F1B14", "#6B645A"
+L_GOLD, L_INK, L_WARM = "#8A6420", "#1F1B14", "#6B645A"   # tema CLARO de GitHub (encabezados y pie)
+# Los siete satélites de viajatech.com con su color propio (shared/satellites.ts → ACCENTS). Orden de la órbita.
+SATELLITES = [
+    ("isabella", "#8B5CF6"),   # violeta: solo Isabella
+    ("sitios", "#F0D890"),     # oro
+    ("tienda", "#FF7A1A"),     # brasa
+    ("codigo", "#B8C4D6"),     # acero
+    ("stories", "#F472B6"),    # rosa
+    ("perfil", "#FFF4D6"),     # marfil
+    ("canales", "#FBBF24"),    # ámbar
+]
 
 # ── Textos (editar aquí) ─────────────────────────────────────────────────────────────────────────
 NAME = "David Ruiz"
 HANDLE = "@viajatech"
-LABEL = "/ 001 — VIAJATECH · JETTRENDY"
-HEADLINE = "CREATIVE TECHNOLOGIST · AI ARCHITECT · DIGITAL STRATEGIST"
+LABEL = "/ 001 — VIAJATECH.COM"
+HEADLINE = "CREATIVE TECHNOLOGIST · AI IN PRODUCTION · DIGITAL MARKETING · WEB"
 PROMPT = "$ whoami"
 MANIFESTO = "one human. an army of AIs. zero limits."
 STATUS = "LIVE — MEXICO CITY"
-DOMAIN = "jettrendy.com"
+DOMAIN = "viajatech.com"
 
 SECTIONS = {  # archivo → (número, título)
     "ship": ("002", "WHAT I SHIP"),
@@ -49,18 +64,20 @@ SECTIONS = {  # archivo → (número, título)
     "stack": ("004", "STACK"),
     "repos": ("005", "SIGNATURE REPOS"),
     "books": ("006", "BOOKS"),
-    "connect": ("007", "CONNECT"),
+    "agents": ("007", "FOR AI AGENTS"),
+    "connect": ("008", "CONNECT"),
 }
 BUTTONS = {  # archivo → etiqueta
-    "jettrendy": "JETTRENDY.COM",
+    "viajatech": "VIAJATECH.COM",
     "viajatech-xyz": "VIAJATECH.XYZ",
+    "jettrendy": "JETTRENDY.COM",
+    "email": "EMAIL",
     "youtube": "YOUTUBE",
     "instagram": "INSTAGRAM",
     "tiktok": "TIKTOK",
     "x": "X",
     "threads": "THREADS",
     "facebook": "FACEBOOK",
-    "email": "EMAIL",
 }
 
 
@@ -103,17 +120,22 @@ class Face:
 
 
 try:
-    SANS_LIGHT = Face("sans-300.woff2", wght=300)
-    MONO = Face("mono-400.woff2")
-    MONO_MED = Face("mono-500.woff2")
+    DISPLAY = Face("unbounded-latin.woff2", wght=600)      # nombre
+    SANS = Face("space-grotesk-latin.woff2", wght=500)     # handle, texto
+    MONO = Face("jetbrains-mono-latin.woff2", wght=400)    # prompt, manifiesto, pie
+    MONO_MED = Face("jetbrains-mono-latin.woff2", wght=500)  # etiquetas, botones
 except Exception as e:  # noqa: BLE001
-    sys.exit(f"No pude cargar las fuentes de {FONT_DIR}: {e}\n(define JT_FONTS o instala fonttools/brotli/uharfbuzz)")
+    sys.exit(f"No pude cargar las fuentes de {FONT_DIR}: {e}\n(copia tools/fonts/ desde viajatech-web/public/fonts o define JT_FONTS)")
 
 
 def text_path(face, text, size, x, y, fill, tracking=0.0, opacity=None, extra=""):
     d, w, _ = face.run(text, size, x, y, tracking)
     op = f' fill-opacity="{opacity}"' if opacity is not None else ""
     return f'<path d="{d}" fill="{fill}"{op}{extra}/>', w
+
+
+def f1(v):
+    return ("%.1f" % v).rstrip("0").rstrip(".")
 
 
 def write(name, svg):
@@ -124,61 +146,114 @@ def write(name, svg):
     print(f"  {name:<28} {len(svg.encode()) / 1024:6.1f} KB")
 
 
-# ── HERO (banner animado 1280×480) ───────────────────────────────────────────────────────────────
+def window(k, n, fade=0.012):
+    """Ventana [k/n, (k+1)/n) de un ciclo, como lista (keyTime, valor 0/1) con fundidos; sin keyTimes repetidos."""
+    a, b = k / n, (k + 1) / n
+    pts = [(0.0, 0), (a, 0), (min(a + fade, b), 1), (max(b - fade, a), 1), (b, 0), (1.0, 0)]
+    out = []
+    for t, v in pts:
+        t = min(max(t, 0.0), 1.0)
+        if out and t <= out[-1][0]:
+            if v != out[-1][1] and t == out[-1][0]:
+                out[-1] = (t, v)
+            continue
+        out.append((t, v))
+    if out[-1][0] < 1.0:
+        out.append((1.0, out[-1][1]))
+    return out
+
+
+def anim(attr, pts, lo, hi, dur, extra=""):
+    """<animate> lineal: cada valor 0/1 de la ventana se escala a lo..hi."""
+    kt = ";".join("%.4f" % t for t, _ in pts)
+    vals = ";".join(f1(lo + (hi - lo) * v) for _, v in pts)
+    return f'<animate attributeName="{attr}" values="{vals}" keyTimes="{kt}" dur="{dur}s" repeatCount="indefinite"{extra}/>'
+
+
+# ── HERO (banner animado 1280×480): el núcleo, sus satélites, la sinapsis y el cometa ───────────
 def hero():
     W, H = 1280, 480
-    cx, cy = 1012, 214  # centro del orbe
-    lx = 72
-    label, _ = text_path(MONO_MED, LABEL, 14, lx, 88, WARM, tracking=0.32)
-    name, _ = text_path(SANS_LIGHT, NAME, 112, lx - 6, 200, IVORY, tracking=-0.01)
-    handle, _ = text_path(SANS_LIGHT, HANDLE, 46, lx - 1, 258, GOLD, opacity=0.9)
-    headline, _ = text_path(MONO_MED, HEADLINE, 14, lx, 326, GOLD, tracking=0.24)
-    prompt, pw = text_path(MONO, PROMPT, 21, lx, 378, WARM)
+    cx, cy = 1012, 214  # centro del núcleo
+    R = 98
+    lx = 66
+    label, _ = text_path(MONO_MED, LABEL, 13, lx, 84, WARM, tracking=0.32)
+    # el nombre en Unbounded: se encoge si no cabe antes del núcleo
+    size = 92
+    while True:
+        _, nw, _ = DISPLAY.run(NAME, size, lx - 4, 196)
+        if nw <= cx - R - 70 - lx or size <= 64:
+            break
+        size -= 2
+    name, _ = text_path(DISPLAY, NAME, size, lx - 4, 196, IVORY, tracking=-0.015)
+    handle, _ = text_path(SANS, HANDLE, 40, lx - 1, 252, GOLD, opacity=0.92)
+    headline, _ = text_path(MONO_MED, HEADLINE, 13, lx, 320, GOLD, tracking=0.2)
+    prompt, pw = text_path(MONO, PROMPT, 21, lx, 376, WARM)
     mx = lx + pw + 16
-    md, mw, mxs = MONO.run(MANIFESTO, 21, mx, 378)
+    md, mw, mxs = MONO.run(MANIFESTO, 21, mx, 376)
     status, _ = text_path(MONO_MED, STATUS, 12, lx + 22, 451, WARM, tracking=0.3)
-    dom_d, dom_w, _ = MONO_MED.run(DOMAIN, 12, 0, 451, 0.3)
-    domain, _ = text_path(MONO_MED, DOMAIN, 12, W - 64 - dom_w, 451, GOLD, tracking=0.3, opacity=0.85)
+    _, dom_w, _ = MONO_MED.run(DOMAIN, 12, 0, 451, 0.3)
+    domain, _ = text_path(MONO_MED, DOMAIN, 12, cx - dom_w / 2, 451, GOLD, tracking=0.3, opacity=0.9)
 
-    # tecleo: el clip crece carácter por carácter y el cursor lo sigue
+    # tecleo del manifiesto: el clip crece carácter por carácter y el cursor lo sigue
     n = len(MANIFESTO)
     widths = [mxs[i] - mx for i in range(n + 1)]
-    wvals = ";".join("%.1f" % w for w in widths)
-    cvals = ";".join("%.1f" % (mx + w + 3) for w in widths)
+    wvals = ";".join(f1(w) for w in widths)
+    cvals = ";".join(f1(mx + w + 3) for w in widths)
     kt = ";".join("%.4f" % (i / n) for i in range(n + 1))
     type_dur, type_begin = 2.6, 1.0
 
-    # nodos en órbita = "un ejército de IAs"
-    orbits = [  # rx, ry, rot, opacidad, [(dur, color, r, fase, sentido)]
-        (212, 64, -14, 0.26, [(18, GOLD_HI, 3.6, 0.0, 1), (18, GOLD, 2.6, 0.5, 1)]),
-        (162, 47, 16, 0.22, [(12, EMBER, 3.0, 0.2, -1), (12, GOLD_HI, 2.2, 0.7, -1)]),
-        (252, 80, 4, 0.18, [(27, GOLD, 2.8, 0.35, 1), (27, GOLD_HI, 2.0, 0.85, 1), (27, EMBER, 2.2, 0.1, 1)]),
-    ]
-    orbit_back, orbit_front = [], []
-    for i, (rx, ry, rot, op, nodes) in enumerate(orbits):
-        pid = f"orb{i}"
-        ring = (f'M {-rx} 0 A {rx} {ry} 0 1 1 {rx} 0 A {rx} {ry} 0 1 1 {-rx} 0')
-        # anillo completo detrás de la esfera + mitad inferior delante (efecto planeta con anillos)
-        orbit_back.append(f'<path id="{pid}" d="{ring}" fill="none" stroke="{GOLD}" stroke-opacity="{op}" '
-                          f'stroke-width="1" stroke-dasharray="2 7" transform="rotate({rot})"/>')
-        orbit_front.append(f'<path d="M {-rx} 0 A {rx} {ry} 0 0 0 {rx} 0" fill="none" stroke="{GOLD}" '
-                           f'stroke-opacity="{op * 1.5:.2f}" stroke-width="1" stroke-dasharray="2 7" transform="rotate({rot})"/>')
-        for dur, col, r, phase, sense in nodes:
-            kp = "1;0" if sense < 0 else "0;1"
-            mot = (f'<animateMotion dur="{dur}s" begin="-{phase * dur:.1f}s" repeatCount="indefinite" '
-                   f'keyPoints="{kp}" keyTimes="0;1" calcMode="linear"><mpath xlink:href="#{pid}"/></animateMotion>')
-            node = (f'<circle r="{r * 2.8:.1f}" fill="{col}" opacity="0.22" filter="url(#soft)">{mot}</circle>'
-                    f'<circle r="{r}" fill="{col}">{mot}</circle>')
-            orbit_back.append(f'<g transform="rotate({rot})">{node}</g>')
-            # copia delantera recortada a la mitad inferior de su órbita (en coordenadas de la órbita)
-            orbit_front.append(f'<g transform="rotate({rot})" clip-path="url(#lower)">{node}</g>')
+    # ── órbita con los siete satélites (como en la portada de viajatech.com) ──
+    rx, ry, rot = 236, 76, -14
+    T, N, S = 26.0, 84, len(SATELLITES)          # periodo, muestras por vuelta (84 = múltiplo de 7)
+    pts = [(rx * math.cos(2 * math.pi * i / N), ry * math.sin(2 * math.pi * i / N)) for i in range(N)]
+    ring = f'M {-rx} 0 A {rx} {ry} 0 1 1 {rx} 0 A {rx} {ry} 0 1 1 {-rx} 0'
+    back, front = [], []
+    back.append(f'<path d="{ring}" fill="none" stroke="{GOLD}" stroke-opacity="0.22" stroke-width="1" stroke-dasharray="2 7"/>')
+    front.append(f'<path d="M {-rx} 0 A {rx} {ry} 0 0 0 {rx} 0" fill="none" stroke="{GOLD}" stroke-opacity="0.34" stroke-width="1" stroke-dasharray="2 7"/>')
+    for k, (sid, col) in enumerate(SATELLITES):
+        off = k * N // S
+        xs = [pts[(i + off) % N][0] for i in range(N + 1)]
+        ys = [pts[(i + off) % N][1] for i in range(N + 1)]
+        xv, yv = ";".join(f1(v) for v in xs), ";".join(f1(v) for v in ys)
+        move = (f'<animate attributeName="{{a}}" values="{{v}}" dur="{T}s" repeatCount="indefinite" calcMode="linear"/>')
+        mv_c = move.format(a="cx", v=xv) + move.format(a="cy", v=yv)
+        mv_l = move.format(a="x2", v=xv) + move.format(a="y2", v=yv)
+        win = window(k, S)
+        # sinapsis: hilo del núcleo al satélite, solo en su ventana; las rayas corren hacia el satélite (el impulso)
+        thread = (f'<line x1="0" y1="0" x2="{f1(xs[0])}" y2="{f1(ys[0])}" stroke="{col}" stroke-width="1.7" stroke-linecap="round" '
+                  f'stroke-dasharray="5 15" stroke-opacity="0">{mv_l}{anim("stroke-opacity", win, 0, 0.9, T)}'
+                  f'<animate attributeName="stroke-dashoffset" from="20" to="0" dur="0.7s" repeatCount="indefinite"/></line>')
+        glow = (f'<circle r="16" fill="{col}" opacity="0" filter="url(#soft)">{mv_c}{anim("opacity", win, 0, 0.5, T)}</circle>')
+        node = (f'<circle r="5" fill="{col}">{mv_c}{anim("r", win, 5, 7.4, T)}</circle>')
+        halo = f'<circle r="11" fill="{col}" opacity="0.2" filter="url(#soft)">{mv_c}</circle>'
+        piece = thread + halo + glow + node
+        back.append(piece)
+        front.append(f'<g clip-path="url(#lower)">{piece}</g>')  # mitad delantera, encima de la esfera
+
+    # ── el cometa (Acto I): nace del vientre del núcleo, baja por el hilo y aterriza en viajatech.com ──
+    C, hy0, hy1 = 7.5, cy + R + 8, 406   # ciclo, inicio y fin del viaje
+    comet = (
+        f'<line x1="{cx}" y1="{hy0}" x2="{cx}" y2="{hy1}" stroke="{GOLD}" stroke-width="1" stroke-dasharray="1 5" stroke-opacity="0.4">'
+        f'<animate attributeName="stroke-opacity" values="0.4;0.4;1;0.4;0.4" keyTimes="0;0.02;0.27;0.42;1" dur="{C}s" repeatCount="indefinite"/></line>'
+        f'<ellipse cx="{cx}" cy="{hy1 + 3}" rx="70" ry="5" fill="{EMBER}" opacity="0" filter="url(#soft)">'
+        f'<animate attributeName="opacity" values="0;0;0.85;0;0" keyTimes="0;0.27;0.3;0.55;1" dur="{C}s" repeatCount="indefinite"/></ellipse>'
+        f'<circle cx="{cx}" cy="{hy1}" r="0" fill="none" stroke="{GOLD_HI}" stroke-width="1.6" opacity="0">'
+        f'<animate attributeName="r" values="0;0;34;34" keyTimes="0;0.27;0.46;1" dur="{C}s" repeatCount="indefinite"/>'
+        f'<animate attributeName="opacity" values="0;0;0.9;0;0" keyTimes="0;0.27;0.28;0.46;1" dur="{C}s" repeatCount="indefinite"/></circle>'
+        f'<g opacity="0"><animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.04;0.25;0.28;1" dur="{C}s" repeatCount="indefinite"/>'
+        f'<line x1="{cx}" y1="{hy0}" x2="{cx}" y2="{hy0 - 26}" stroke="{GOLD_HI}" stroke-width="2.4" stroke-linecap="round" stroke-opacity="0.75">'
+        f'<animate attributeName="y1" values="{hy0};{hy1};{hy1}" keyTimes="0;0.27;1" dur="{C}s" repeatCount="indefinite"/>'
+        f'<animate attributeName="y2" values="{hy0 - 8};{hy1 - 34};{hy1 - 34}" keyTimes="0;0.27;1" dur="{C}s" repeatCount="indefinite"/></line>'
+        f'<circle cx="{cx}" cy="{hy0}" r="9" fill="{EMBER}" opacity="0.45" filter="url(#soft)"><animate attributeName="cy" values="{hy0};{hy1};{hy1}" keyTimes="0;0.27;1" dur="{C}s" repeatCount="indefinite"/></circle>'
+        f'<circle cx="{cx}" cy="{hy0}" r="3.4" fill="{GOLD_HI}"><animate attributeName="cy" values="{hy0};{hy1};{hy1}" keyTimes="0;0.27;1" dur="{C}s" repeatCount="indefinite"/>'
+        f'<animate attributeName="r" values="2.2;3.8;3.8" keyTimes="0;0.27;1" dur="{C}s" repeatCount="indefinite"/></circle></g>'
+    )
 
     # chispas de forja que suben del horizonte (brasas)
     sparks = []
     for j, (x, rise, dur, beg, r, col) in enumerate([
-        (700, 70, 6.5, 0.0, 1.6, EMBER), (782, 118, 8.0, 2.1, 1.2, GOLD_HI), (868, 92, 7.2, 4.0, 1.8, EMBER),
-        (955, 140, 9.0, 1.2, 1.3, GOLD), (1046, 104, 7.6, 3.3, 1.7, EMBER), (1134, 128, 8.6, 5.1, 1.2, GOLD_HI),
-        (1210, 84, 6.8, 2.7, 1.5, EMBER), (1000, 60, 5.8, 6.0, 1.1, GOLD_HI),
+        (700, 70, 6.5, 0.0, 1.6, EMBER), (790, 118, 8.0, 2.1, 1.2, GOLD_HI), (880, 92, 7.2, 4.0, 1.8, EMBER),
+        (1120, 128, 8.6, 5.1, 1.2, GOLD_HI), (1205, 84, 6.8, 2.7, 1.5, EMBER),
     ]):
         sparks.append(
             f'<circle cx="{x}" cy="408" r="{r}" fill="{col}" opacity="0">'
@@ -187,8 +262,8 @@ def hero():
             f'<animate attributeName="opacity" values="0;0.9;0.5;0" keyTimes="0;0.2;0.7;1" dur="{dur}s" begin="{beg}s" repeatCount="indefinite"/>'
             f'</circle>')
 
-    return f'''<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-label="{NAME} — {HANDLE} — Creative Technologist, AI Architect, Digital Strategist — {MANIFESTO}">
-<title>{NAME} — {HANDLE}</title>
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-label="{NAME} — {HANDLE} — Creative Technologist · AI in production · Digital marketing · Web — {MANIFESTO}">
+<title>{NAME} — {HANDLE} — viajatech.com</title>
 <defs>
   <clipPath id="card"><rect width="{W}" height="{H}" rx="22"/></clipPath>
   <radialGradient id="forge" cx="0.74" cy="1.08" r="0.78">
@@ -224,14 +299,14 @@ def hero():
     <stop offset="1" stop-color="{GOLD}" stop-opacity="0"/>
     <animateTransform attributeName="gradientTransform" type="translate" values="-0.35 0;0.35 0;-0.35 0" dur="9s" repeatCount="indefinite"/>
   </linearGradient>
-  <clipPath id="lower"><rect x="-320" y="0" width="640" height="200"/></clipPath>
+  <clipPath id="lower"><rect x="-340" y="0" width="680" height="200"/></clipPath>
   <filter id="soft" x="-2" y="-2" width="5" height="5"><feGaussianBlur stdDeviation="3"/></filter>
   <filter id="blur1"><feGaussianBlur stdDeviation="0.8"/></filter>
   <filter id="grain" x="0" y="0" width="100%" height="100%">
     <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch" result="n"/>
     <feColorMatrix in="n" type="matrix" values="0 0 0 0 0.94  0 0 0 0 0.85  0 0 0 0 0.62  0 0 0 0.06 0"/>
   </filter>
-  <clipPath id="typeclip"><rect x="{mx}" y="350" height="40" width="0">
+  <clipPath id="typeclip"><rect x="{mx}" y="348" height="40" width="0">
     <animate attributeName="width" values="{wvals}" keyTimes="{kt}" calcMode="discrete" dur="{type_dur}s" begin="{type_begin}s" fill="freeze"/>
   </rect></clipPath>
 </defs>
@@ -241,27 +316,30 @@ def hero():
   <rect width="{W}" height="{H}" filter="url(#grain)"/>
   <rect x="0" y="409" width="{W}" height="1.4" fill="url(#horizon)"/>
   <rect x="0" y="410" width="{W}" height="18" fill="url(#horizon)" opacity="0.10" filter="url(#soft)"/>
+  {comet}
 
   <g transform="translate({cx} {cy})">
     <circle r="190" fill="url(#halo)"><animate attributeName="opacity" values="0.65;1;0.65" dur="4.5s" repeatCount="indefinite"/></circle>
-    {"".join(orbit_back)}
-    <circle r="98" fill="url(#sphere)"/>
-    <circle r="97" fill="none" stroke="{GOLD}" stroke-opacity="0.22"/>
-    <g><circle r="101" fill="none" stroke="url(#bezel)" stroke-width="3.2" stroke-linecap="round" stroke-dasharray="52 16 118 30 64 22 90 44" opacity="0.92"/>
+    <g transform="rotate({rot})">{"".join(back)}</g>
+    <circle r="{R}" fill="url(#sphere)"/>
+    <circle r="{R - 1}" fill="none" stroke="{GOLD}" stroke-opacity="0.22"/>
+    <g><circle r="{R + 3}" fill="none" stroke="url(#bezel)" stroke-width="3.2" stroke-linecap="round" stroke-dasharray="52 16 118 30 64 22 90 44" opacity="0.92"/>
       <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="9s" repeatCount="indefinite"/></g>
+    <g><circle r="{R + 11}" fill="none" stroke="{GOLD}" stroke-opacity="0.35" stroke-width="0.8" stroke-dasharray="1 9"/>
+      <animateTransform attributeName="transform" type="rotate" from="360" to="0" dur="31s" repeatCount="indefinite"/></g>
     <ellipse cx="-32" cy="-44" rx="30" ry="17" fill="url(#spec)" transform="rotate(-24 -32 -44)" filter="url(#blur1)"/>
-    {"".join(orbit_front)}
+    <g transform="rotate({rot})">{"".join(front)}</g>
   </g>
   {"".join(sparks)}
 
   {label}
   {name}
   {handle}
-  <rect x="{lx}" y="286" width="92" height="1" fill="{GOLD}" opacity="0.5"/>
+  <rect x="{lx}" y="280" width="92" height="1" fill="{GOLD}" opacity="0.5"/>
   {headline}
   {prompt}
   <path d="{md}" fill="{IVORY}" clip-path="url(#typeclip)"/>
-  <rect x="{mx + 3}" y="360" width="11" height="23" fill="{GOLD}">
+  <rect x="{mx + 3}" y="358" width="11" height="23" fill="{GOLD}">
     <animate attributeName="x" values="{cvals}" keyTimes="{kt}" calcMode="discrete" dur="{type_dur}s" begin="{type_begin}s" fill="freeze"/>
     <animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.5;0.5;1" dur="1.05s" repeatCount="indefinite"/>
   </rect>
@@ -276,17 +354,17 @@ def hero():
 
 
 def arrow_ne(x, y, s, color, width=1.6):
-    """Flecha ↗ dibujada (la fuente no trae flechas). (x, y) = esquina inferior izquierda."""
+    """Flecha ↗ dibujada (las fuentes latin no la traen). (x, y) = esquina inferior izquierda."""
     return (f'<path d="M {x} {y} L {x + s} {y - s} M {x + s * 0.35} {y - s} L {x + s} {y - s} L {x + s} {y - s * 0.65}" '
             f'fill="none" stroke="{color}" stroke-width="{width}" stroke-linecap="round" stroke-linejoin="round"/>')
 
 
-# ── Encabezado de sección (560×56, fondo transparente; variante oscura y clara) ─────────────────
+# ── Encabezado de sección (560×60, fondo transparente; variante oscura y clara) ─────────────────
 def section(num, title, dark=True):
     W, H = 560, 60
     c_num, c_title, c_line = (WARM, GOLD, GOLD) if dark else (L_WARM, L_GOLD, L_GOLD)
-    pre, pw = text_path(MONO_MED, f"/ {num} — ", 20, 2, 39, c_num, tracking=0.2)
-    ttl, tw = text_path(MONO_MED, title, 20, 2 + pw + 20 * 0.2, 39, c_title, tracking=0.2)
+    pre, pw = text_path(MONO_MED, f"/ {num} — ", 19, 2, 39, c_num, tracking=0.18)
+    ttl, tw = text_path(MONO_MED, title, 19, 2 + pw + 19 * 0.18, 39, c_title, tracking=0.18)
     x0 = min(2 + pw + tw + 30, W - 60)
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-label="{num} — {title}">
 <title>{title.title()}</title>
@@ -301,29 +379,38 @@ def section(num, title, dark=True):
 '''
 
 
-# ── Botones grandes de Isabella (CTA) — oscuros en ambos temas (objeto de marca) ──────────────────
+# ── Botones grandes (CTA, 60 px) — oscuros en ambos temas (objeto de marca) ─────────────────────
 def cta(label, icon):
     H = 60
-    lab_d, lw, _ = MONO_MED.run(label, 14, 0, 0, 0.2)
+    _, lw, _ = MONO_MED.run(label, 14, 0, 0, 0.2)
     W = int(24 + 36 + 14 + lw + 18 + 12 + 26)
     lab, _ = text_path(MONO_MED, label, 14, 74, 35, IVORY, tracking=0.2)
     ax = 74 + lw + 18
-    if icon == "orb":  # mini orbe de Isabella con bisel que gira
+    if icon == "orb":  # mini núcleo de Isabella con bisel que gira y rim violeta
         ic = f'''<g transform="translate(42 30)">
   <circle r="17" fill="url(#halo)"/>
   <circle r="11.5" fill="url(#sph)"/>
+  <circle r="11.5" fill="none" stroke="#8B5CF6" stroke-opacity="0.55" stroke-width="1"/>
   <g><circle r="13.2" fill="none" stroke="{GOLD}" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="14 5 22 8 12 6"/>
   <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="7s" repeatCount="indefinite"/></g>
   <ellipse cx="-3.5" cy="-4.5" rx="3.6" ry="2" fill="#FFF4D6" opacity="0.55" transform="rotate(-24 -3.5 -4.5)"/>
 </g>'''
-    else:  # onda de voz animada
+    elif icon == "wave":  # onda de voz animada (rosa orquídea, el orbe de voz de Isabella)
         bars = []
         for k, (h1, h2, d) in enumerate([(6, 16, 0.9), (10, 24, 1.1), (16, 8, 0.8), (8, 20, 1.0), (5, 13, 1.2)]):
             x = 29 + k * 6.2
-            bars.append(f'<rect x="{x:.1f}" y="{30 - h1 / 2}" width="3" height="{h1}" rx="1.5" fill="{GOLD}">'
+            bars.append(f'<rect x="{x:.1f}" y="{30 - h1 / 2}" width="3" height="{h1}" rx="1.5" fill="#F472B6">'
                         f'<animate attributeName="height" values="{h1};{h2};{h1}" dur="{d}s" repeatCount="indefinite"/>'
                         f'<animate attributeName="y" values="{30 - h1 / 2};{30 - h2 / 2};{30 - h1 / 2}" dur="{d}s" repeatCount="indefinite"/></rect>')
         ic = "".join(bars)
+    else:  # cometa que aterriza (sitios web para negocios)
+        ic = f'''<g transform="translate(42 30)">
+  <circle r="16" fill="url(#halo)"/>
+  <line x1="-13" y1="-11" x2="4" y2="4" stroke="{GOLD}" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.75"/>
+  <circle cx="4" cy="4" r="4.2" fill="{GOLD_HI}"/>
+  <circle cx="4" cy="4" r="4" fill="none" stroke="{GOLD_HI}" stroke-width="1.2" opacity="0">
+    <animate attributeName="r" values="4;13" dur="2.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.8;0" dur="2.4s" repeatCount="indefinite"/></circle>
+</g>'''
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-label="{label.title()}">
 <title>{label.title()}</title>
 <defs>
@@ -367,15 +454,15 @@ def footer(dark=True):
     n = len(cmd)
     widths = [cxs[i] - cx0 for i in range(n + 1)]
     kt = ";".join("%.4f" % (i / n) for i in range(n + 1))
-    sub, _ = text_path(MONO, "made in mexico city · one human + an army of AIs", 13, 2, 63, c_sub, tracking=0.06)
-    return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-label="guest@viajatech:~$ join --revolution — made in mexico city">
+    sub, _ = text_path(MONO, "made in mexico city · one human + an army of AIs · viajatech.com", 12.5, 2, 63, c_sub, tracking=0.05)
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-label="guest@viajatech:~$ join --revolution — made in mexico city · viajatech.com">
 <title>join --revolution</title>
 <defs><clipPath id="t"><rect x="{cx0}" y="10" height="30" width="0">
-  <animate attributeName="width" values="{";".join("%.1f" % w for w in widths)}" keyTimes="{kt}" calcMode="discrete" dur="1.7s" begin="0.8s" fill="freeze"/></rect></clipPath></defs>
+  <animate attributeName="width" values="{";".join(f1(w) for w in widths)}" keyTimes="{kt}" calcMode="discrete" dur="1.7s" begin="0.8s" fill="freeze"/></rect></clipPath></defs>
 {pr}
 <path d="{cd}" fill="{c_cmd}" clip-path="url(#t)"/>
 <rect x="{cx0 + 2}" y="14" width="10" height="21" fill="{c_caret}">
-  <animate attributeName="x" values="{";".join("%.1f" % (cx0 + w + 2) for w in widths)}" keyTimes="{kt}" calcMode="discrete" dur="1.7s" begin="0.8s" fill="freeze"/>
+  <animate attributeName="x" values="{";".join(f1(cx0 + w + 2) for w in widths)}" keyTimes="{kt}" calcMode="discrete" dur="1.7s" begin="0.8s" fill="freeze"/>
   <animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.5;0.5;1" dur="1.05s" repeatCount="indefinite"/></rect>
 {sub}
 </svg>
@@ -390,6 +477,7 @@ if __name__ == "__main__":
         write(f"sec-{key}-light.svg", section(num, title, dark=False))
     write("cta-chat.svg", cta("CHAT WITH ISABELLA", "orb"))
     write("cta-voice.svg", cta("TALK TO HER · VOICE", "wave"))
+    write("cta-sitios.svg", cta("A WEBSITE FOR YOUR BUSINESS", "comet"))
     for key, label in BUTTONS.items():
         write(f"btn-{key}.svg", button(label))
     write("footer-dark.svg", footer(dark=True))
