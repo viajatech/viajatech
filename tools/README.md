@@ -47,4 +47,4 @@ python3 tools/build_assets.py
 1. Vista previa real: `preview_perfil_github.py --build` (script del hub privado de viajatech, fuera de este repo) (renderiza el README con la API de
    GitHub y captura oscuro / claro / celular; falla si hay imágenes rotas o desborde). Mirar las capturas.
 2. Commit + push a `main` (nunca force). Verificar publicado: `preview_perfil_github.py --live`.
-3. Auditoría de exposición: `~/Documents/web_platform/scripts/auditoria_publica.py`.
+3. Auditoría de exposición: `auditoria_publica.py` (también del hub privado).
