@@ -40,10 +40,10 @@ L_GOLD, L_INK, L_WARM = "#8A6420", "#1F1B14", "#6B645A"   # tema CLARO de GitHub
 # Los ocho satélites de viajatech.com con su color propio (shared/satellites.ts → ACCENTS). Orden de la órbita.
 SATELLITES = [
     ("isabella", "#8B5CF6"),   # violeta: solo Isabella
-    ("sitios", "#F0D890"),     # oro
+    ("sitios", "#5B9DFF"),     # azul eléctrico (D-050 bis; antes oro, idéntico al orbe)
     ("mundos", "#4ADE80"),     # verde vida: Mundos (viajatech.com/mundos, D-049)
     ("tienda", "#FF7A1A"),     # brasa
-    ("codigo", "#5B9DFF"),     # azul eléctrico (D-050 de viajatech-web; antes acero)
+    ("codigo", "#B8C4D6"),     # acero
     ("stories", "#F472B6"),    # rosa
     ("perfil", "#FFF4D6"),     # marfil
     ("canales", "#FBBF24"),    # ámbar

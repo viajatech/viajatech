@@ -9,7 +9,7 @@ Nunca pongas aquí datos privados, rutas locales, nombres de repos privados ni s
   el sitio y nada que no esté publicado ahí (sin hotelería, sin cifras no verificables).
 - **Paleta:** obsidiana `#060607` · oro fundido `#D8B15F` / `#F0D890` / `#9C7A33` · brasa `#FF7A1A` (poca) · marfil `#F2EDE4` ·
   gris cálido `#8A8478`. Tema claro de GitHub: oro profundo `#8A6420`. Los ocho satélites llevan el color de su sección en
-  viajatech.com: Isabella violeta, Sitios oro, Tienda brasa, Código azul eléctrico, Stories rosa, Perfil marfil, Canales ámbar.
+  viajatech.com: Isabella violeta, Sitios azul eléctrico, Tienda brasa, Código acero, Stories rosa, Perfil marfil, Canales ámbar.
 - **Prohibido por la marca de David:** cian, teal, turquesa, azul neón, morado/rosa pastel, degradados holográficos
   arcoíris, y los clichés de "circuitos", cerebros de alambre, código binario o rejillas de hexágonos.
 - **Motivo:** la portada de viajatech.com en SVG: el núcleo (esfera de obsidiana con bisel de oro que gira), la órbita con los
