@@ -17,7 +17,7 @@
 
 <p align="center"><sub><b>Isabella is my AI.</b> She knows my work, speaks your language and answers in real time — by text or by voice, on <a href="https://viajatech.com/isabella">viajatech.com</a>. Go ahead: ask her anything about me.</sub></p>
 
-<p align="center"><sub><b>Now I am become Life, the creator of worlds.</b> Walkable 3D worlds in your browser — phone, laptop, tablet, nothing to install. The first one is open: <a href="https://viajatech.com/mundos">viajatech.com/mundos</a>.</sub></p>
+<p align="center"><sub><b>Now I am become Life, the creator of worlds.</b> Walkable 3D worlds in your browser — phone, laptop, tablet, nothing to install. Two are open and a robotaxi crosses the portal between them: <a href="https://viajatech.com/mundos">viajatech.com/mundos</a>.</sub></p>
 
 <br>
 
@@ -41,7 +41,7 @@
 | **Digital marketing & growth** | Campaign segmentation, A/B testing and data interpretation to improve CPC, performance and leads. Ten years of it. |
 | **Campaign production** | International talent — actors, actresses and celebrities — in Spanish and English; scripts, music, video editing, pre- and post-production. |
 | **Websites, stores & e-commerce** | Sites that sell, with applied security, from **$1,500 MXN**, up to full online stores. Try the live demo of a business site with its own booking engine: [viajatech.com/huellitas](https://viajatech.com/huellitas). |
-| **Worlds** | Walkable 3D worlds that run in the browser — phone, laptop, tablet — no install, no account. Mundo 001, *the city under the ceiling*, is open now and its taxi already points to Mundo 002: [viajatech.com/mundos](https://viajatech.com/mundos). |
+| **Worlds** | Walkable 3D worlds that run in the browser — phone, laptop, tablet — no install, no account. Mundo 001, *the city under the ceiling*, and Mundo 002, *the Huellitas sidewalk*: a sunny street in Polanco where you walk into the model home's dog grooming salon and book an appointment without leaving the world. The robotaxi crosses the portal between them: [viajatech.com/mundos](https://viajatech.com/mundos). |
 | **Teaching & security** | Tutorials and talks on AI, cybersecurity and digital marketing — Kali Linux, hashcat, recon, OSINT, digital exposure analysis with Shodan, always on my own assets. |
 
 <br>
@@ -55,7 +55,7 @@
 |:--|:--|
 | [**viajatech.com**](https://viajatech.com) | My flagship site: a WebGL core with eight satellites, a comet that lands on the brand, Isabella by text and voice, seven languages.<br><sub>Astro · React islands · Hono on Cloudflare Workers · WebGL2 raymarch · strict CSP</sub> |
 | [**viajatech.com/sitios**](https://viajatech.com/sitios) | Websites for businesses — packages, process and prices, with a working booking engine your customers can try before you buy.<br><sub>Cloudflare Workers · D1 · Turnstile · the same security as this site</sub> |
-| [**viajatech.com/mundos**](https://viajatech.com/mundos) | Worlds: walk a bridge under an endless office ceiling, go down to the avenue, get in the taxi and cross the portal to the next world — from any screen.<br><sub>three.js · WebGL · strict CSP, no CDN · 7 languages</sub> |
+| [**viajatech.com/mundos**](https://viajatech.com/mundos) | Worlds: walk a bridge under an endless office ceiling, get in the taxi, cross the portal and step out on a sunny street in Polanco, at the door of Huellitas — from any screen.<br><sub>three.js · WebGL · strict CSP, no CDN · 7 languages</sub> |
 | [**viajatech.xyz**](https://viajatech.xyz) | My digital store: books, software and courses, with Stripe checkout and instant delivery.<br><sub>Cloudflare Workers · Hono · D1 · R2 · Stripe</sub> |
 | [**jettrendy.com**](https://jettrendy.com) | My personal brand and lab — where Isabella was born and where I try things first.<br><sub>Next.js · React · Vercel</sub> |
 | [**The books**](https://viajatech.xyz/ebooks) | My catalog in English and Spanish — also on Amazon Kindle.<br><sub>Written, designed and shipped end to end</sub> |
@@ -126,7 +126,7 @@ Agents, assistants and other digital beings are welcome here. Everything public 
 
 **¿Un sitio para tu negocio?** Paquetes desde $1,500 MXN en [viajatech.com/sitios](https://viajatech.com/sitios); prueba la casa muestra con agenda propia en [viajatech.com/huellitas](https://viajatech.com/huellitas).
 
-**Mundos:** mundos caminables en 3D dentro del navegador, desde el celular, la laptop o la tablet, sin instalar nada. El primero, Mundo 001 «La ciudad bajo el techo», ya está abierto: [viajatech.com/mundos](https://viajatech.com/mundos).
+**Mundos:** mundos caminables en 3D dentro del navegador, desde el celular, la laptop o la tablet, sin instalar nada. Hay dos abiertos, Mundo 001 «La ciudad bajo el techo» y Mundo 002 «La banqueta de Huellitas», unidos por el robotaxi: [viajatech.com/mundos](https://viajatech.com/mundos).
 
 Mi tienda: [viajatech.xyz](https://viajatech.xyz) · Mis libros: [viajatech.xyz/ebooks](https://viajatech.xyz/ebooks) · Mi laboratorio: [jettrendy.com](https://jettrendy.com) · YouTube: [@viajatech](https://www.youtube.com/@viajatech) · Correo: david@viajatech.com
 
