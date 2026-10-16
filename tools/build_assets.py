@@ -41,7 +41,7 @@ L_GOLD, L_INK, L_WARM = "#8A6420", "#1F1B14", "#6B645A"   # tema CLARO de GitHub
 SATELLITES = [
     ("isabella", "#8B5CF6"),   # violeta: solo Isabella
     ("sitios", "#F0D890"),     # oro
-    ("mundos", "#C98F5A"),     # bronce: Mundos (viajatech.com/mundos, D-049)
+    ("mundos", "#4ADE80"),     # verde vida: Mundos (viajatech.com/mundos, D-049)
     ("tienda", "#FF7A1A"),     # brasa
     ("codigo", "#B8C4D6"),     # acero
     ("stories", "#F472B6"),    # rosa
@@ -404,11 +404,11 @@ def cta(label, icon):
                         f'<animate attributeName="height" values="{h1};{h2};{h1}" dur="{d}s" repeatCount="indefinite"/>'
                         f'<animate attributeName="y" values="{30 - h1 / 2};{30 - h2 / 2};{30 - h1 / 2}" dur="{d}s" repeatCount="indefinite"/></rect>')
         ic = "".join(bars)
-    elif icon == "portal":  # portal del taxi entre mundos: anillo de bronce y la chispa que lo cruza (viajatech.com/mundos)
+    elif icon == "portal":  # portal del taxi entre mundos: anillo verde vida y la chispa que lo cruza (viajatech.com/mundos)
         ic = f'''<g transform="translate(42 30)">
   <circle r="17" fill="url(#halo)"/>
-  <ellipse rx="13" ry="7.5" fill="none" stroke="#C98F5A" stroke-width="1.6" stroke-opacity="0.9"/>
-  <ellipse rx="8" ry="4.6" fill="none" stroke="#C98F5A" stroke-width="1" stroke-opacity="0.5"/>
+  <ellipse rx="13" ry="7.5" fill="none" stroke="#4ADE80" stroke-width="1.6" stroke-opacity="0.9"/>
+  <ellipse rx="8" ry="4.6" fill="none" stroke="#4ADE80" stroke-width="1" stroke-opacity="0.5"/>
   <circle r="2.6" fill="{GOLD_HI}"><animate attributeName="cx" values="-16;0;16" dur="2.2s" repeatCount="indefinite"/><animate attributeName="r" values="1.4;3.2;1.4" dur="2.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;0" dur="2.2s" repeatCount="indefinite"/></circle>
 </g>'''
     else:  # cometa que aterriza (sitios web para negocios)
