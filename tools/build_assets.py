@@ -43,7 +43,7 @@ SATELLITES = [
     ("sitios", "#F0D890"),     # oro
     ("mundos", "#4ADE80"),     # verde vida: Mundos (viajatech.com/mundos, D-049)
     ("tienda", "#FF7A1A"),     # brasa
-    ("codigo", "#B8C4D6"),     # acero
+    ("codigo", "#5B9DFF"),     # azul eléctrico (D-050 de viajatech-web; antes acero)
     ("stories", "#F472B6"),    # rosa
     ("perfil", "#FFF4D6"),     # marfil
     ("canales", "#FBBF24"),    # ámbar
