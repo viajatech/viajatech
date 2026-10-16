@@ -5,16 +5,19 @@
 -->
 
 <p align="center">
-  <a href="https://viajatech.com"><img src="assets/hero.svg" width="100%" alt="David Ruiz — @viajatech · Creative Technologist · AI in production · Digital marketing · Web — one human. an army of AIs. zero limits. — viajatech.com"></a>
+  <a href="https://viajatech.com"><img src="assets/hero.svg" width="100%" alt="David Ruiz — @viajatech · Creative Technologist · Creator of worlds · AI · Marketing · Web — one human. an army of AIs. zero limits. — viajatech.com"></a>
 </p>
 
 <p align="center">
   <a href="https://viajatech.com/isabella"><img src="assets/cta-chat.svg" height="60" alt="Chat with Isabella, my AI — live on viajatech.com"></a>&nbsp;&nbsp;
   <a href="https://viajatech.com/isabella"><img src="assets/cta-voice.svg" height="60" alt="Talk to Isabella by voice — viajatech.com/isabella"></a>&nbsp;&nbsp;
-  <a href="https://viajatech.com/sitios"><img src="assets/cta-sitios.svg" height="60" alt="A website for your business — viajatech.com/sitios"></a>
+  <a href="https://viajatech.com/sitios"><img src="assets/cta-sitios.svg" height="60" alt="A website for your business — viajatech.com/sitios"></a>&nbsp;&nbsp;
+  <a href="https://viajatech.com/mundos"><img src="assets/cta-mundos.svg" height="60" alt="Enter a world — viajatech.com/mundos"></a>
 </p>
 
 <p align="center"><sub><b>Isabella is my AI.</b> She knows my work, speaks your language and answers in real time — by text or by voice, on <a href="https://viajatech.com/isabella">viajatech.com</a>. Go ahead: ask her anything about me.</sub></p>
+
+<p align="center"><sub><b>Now I am become Life, the creator of worlds.</b> Walkable 3D worlds in your browser — phone, laptop, tablet, nothing to install. The first one is open: <a href="https://viajatech.com/mundos">viajatech.com/mundos</a>.</sub></p>
 
 <br>
 
@@ -38,6 +41,7 @@
 | **Digital marketing & growth** | Campaign segmentation, A/B testing and data interpretation to improve CPC, performance and leads. Ten years of it. |
 | **Campaign production** | International talent — actors, actresses and celebrities — in Spanish and English; scripts, music, video editing, pre- and post-production. |
 | **Websites, stores & e-commerce** | Sites that sell, with applied security, from **$1,500 MXN**, up to full online stores. Try the live demo of a business site with its own booking engine: [viajatech.com/huellitas](https://viajatech.com/huellitas). |
+| **Worlds** | Walkable 3D worlds that run in the browser — phone, laptop, tablet — no install, no account. Mundo 001, *the city under the ceiling*, is open now and its taxi already points to Mundo 002: [viajatech.com/mundos](https://viajatech.com/mundos). |
 | **Teaching & security** | Tutorials and talks on AI, cybersecurity and digital marketing — Kali Linux, hashcat, recon, OSINT, digital exposure analysis with Shodan, always on my own assets. |
 
 <br>
@@ -49,8 +53,9 @@
 
 | Live | What it is |
 |:--|:--|
-| [**viajatech.com**](https://viajatech.com) | My flagship site: a WebGL core with seven satellites, a comet that lands on the brand, Isabella by text and voice, seven languages.<br><sub>Astro · React islands · Hono on Cloudflare Workers · WebGL2 raymarch · strict CSP</sub> |
+| [**viajatech.com**](https://viajatech.com) | My flagship site: a WebGL core with eight satellites, a comet that lands on the brand, Isabella by text and voice, seven languages.<br><sub>Astro · React islands · Hono on Cloudflare Workers · WebGL2 raymarch · strict CSP</sub> |
 | [**viajatech.com/sitios**](https://viajatech.com/sitios) | Websites for businesses — packages, process and prices, with a working booking engine your customers can try before you buy.<br><sub>Cloudflare Workers · D1 · Turnstile · the same security as this site</sub> |
+| [**viajatech.com/mundos**](https://viajatech.com/mundos) | Worlds: walk a bridge under an endless office ceiling, go down to the avenue, get in the taxi and cross the portal to the next world — from any screen.<br><sub>three.js · WebGL · strict CSP, no CDN · 7 languages</sub> |
 | [**viajatech.xyz**](https://viajatech.xyz) | My digital store: books, software and courses, with Stripe checkout and instant delivery.<br><sub>Cloudflare Workers · Hono · D1 · R2 · Stripe</sub> |
 | [**jettrendy.com**](https://jettrendy.com) | My personal brand and lab — where Isabella was born and where I try things first.<br><sub>Next.js · React · Vercel</sub> |
 | [**The books**](https://viajatech.xyz/ebooks) | My catalog in English and Spanish — also on Amazon Kindle.<br><sub>Written, designed and shipped end to end</sub> |
@@ -66,7 +71,7 @@
 | Layer | Tools |
 |:--|:--|
 | **AI** | Claude · Gemini & Gemini Live (voice) · GPT · GLM · DeepSeek · OpenRouter · local models (LM Studio) · multi-agent orchestration |
-| **Web** | TypeScript · Astro · React · Next.js · Hono · WebGL2 (raymarch shaders) · Tailwind |
+| **Web** | TypeScript · Astro · React · Next.js · Hono · WebGL2 (raymarch shaders) · three.js · Tailwind |
 | **Infra & data** | Cloudflare Workers · D1 · R2 · Vercel · Stripe · Resend · Upstash Redis |
 | **Security** | Strict CSP with hashes · proof-of-work + HMAC-signed turns · Turnstile · edge WAF & rate limits · Shodan surface patrol of my own domains |
 | **Automation & media** | Python · Playwright · FFmpeg · Replicate · office automation |
@@ -110,15 +115,18 @@ Agents, assistants and other digital beings are welcome here. Everything public 
 <summary><b>🇲🇽 Léelo en español</b></summary>
 <br>
 
-**Entrego IA que ya trabaja en producción.** Soy David Ruiz, Creative Technologist en la Ciudad de México. Implemento asistentes de texto y voz, agentes autónomos y sistemas multiagente; entreno modelos con datasets propios; lidero marketing digital con datos; y construyo sitios web y tiendas en línea con seguridad aplicada. Todo lo de arriba está en vivo.
+**Entrego IA que ya trabaja en producción.** Soy David Ruiz, Creative Technologist en la Ciudad de México. Implemento asistentes de texto y voz, agentes autónomos y sistemas multiagente; entreno modelos con datasets propios; lidero marketing digital con datos; y construyo sitios web y tiendas en línea con seguridad aplicada. Y construyo mundos. Todo lo de arriba está en vivo.
 
 > una sola persona. un ejército de IAs. cero límites.<br>
 > sitios vivos. tiendas que cobran. libros. voces con alma.<br>
-> el futuro no se promete: se entrega funcionando.
+> el futuro no se promete: se entrega funcionando.<br>
+> me he convertido en la vida, el creador de mundos.
 
 **Habla con Isabella**, mi IA, por texto o por voz en [viajatech.com/isabella](https://viajatech.com/isabella). Conoce mi trabajo y te responde en tu idioma.
 
 **¿Un sitio para tu negocio?** Paquetes desde $1,500 MXN en [viajatech.com/sitios](https://viajatech.com/sitios); prueba la casa muestra con agenda propia en [viajatech.com/huellitas](https://viajatech.com/huellitas).
+
+**Mundos:** mundos caminables en 3D dentro del navegador, desde el celular, la laptop o la tablet, sin instalar nada. El primero, Mundo 001 «La ciudad bajo el techo», ya está abierto: [viajatech.com/mundos](https://viajatech.com/mundos).
 
 Mi tienda: [viajatech.xyz](https://viajatech.xyz) · Mis libros: [viajatech.xyz/ebooks](https://viajatech.xyz/ebooks) · Mi laboratorio: [jettrendy.com](https://jettrendy.com) · YouTube: [@viajatech](https://www.youtube.com/@viajatech) · Correo: david@viajatech.com
 

@@ -5,7 +5,7 @@ build_assets.py — genera TODOS los SVG del README de perfil de github.com/viaj
 Diseño "OBSIDIAN FORGE · el núcleo de viajatech.com": obsidiana + oro fundido + una brasa ámbar (NUNCA cian/teal/azul
 neón, ni circuitos/cerebros/binario/hexágonos: reglas de marca de David). La portada de viajatech.com es un núcleo con siete
 satélites (uno por sección, cada uno con su color) y un cometa que baja hasta la marca; este banner es la misma idea en
-SVG: núcleo, órbita con los siete satélites, una sinapsis que recorre cada satélite y el cometa que aterriza en viajatech.com.
+SVG: núcleo, órbita con los ocho satélites, una sinapsis que recorre cada satélite y el cometa que aterriza en viajatech.com.
 
 Tipografía "Forja", la del sitio (D-019 de viajatech-web): Unbounded (display), Space Grotesk (texto), JetBrains Mono
 (datos), todas SIL OFL. El texto se convierte a TRAZOS con HarfBuzz → se ve idéntico en cualquier dispositivo y no depende
@@ -37,10 +37,11 @@ GOLD, GOLD_HI, GOLD_DEEP = "#D8B15F", "#F0D890", "#9C7A33"
 EMBER = "#FF7A1A"                           # brasa (con moderación)
 IVORY, WARM, DIM = "#F2EDE4", "#8A8478", "#4A463F"
 L_GOLD, L_INK, L_WARM = "#8A6420", "#1F1B14", "#6B645A"   # tema CLARO de GitHub (encabezados y pie)
-# Los siete satélites de viajatech.com con su color propio (shared/satellites.ts → ACCENTS). Orden de la órbita.
+# Los ocho satélites de viajatech.com con su color propio (shared/satellites.ts → ACCENTS). Orden de la órbita.
 SATELLITES = [
     ("isabella", "#8B5CF6"),   # violeta: solo Isabella
     ("sitios", "#F0D890"),     # oro
+    ("mundos", "#C98F5A"),     # bronce: Mundos (viajatech.com/mundos, D-049)
     ("tienda", "#FF7A1A"),     # brasa
     ("codigo", "#B8C4D6"),     # acero
     ("stories", "#F472B6"),    # rosa
@@ -52,7 +53,7 @@ SATELLITES = [
 NAME = "David Ruiz"
 HANDLE = "@viajatech"
 LABEL = "/ 001 — VIAJATECH.COM"
-HEADLINE = "CREATIVE TECHNOLOGIST · AI IN PRODUCTION · DIGITAL MARKETING · WEB"
+HEADLINE = "CREATIVE TECHNOLOGIST · CREATOR OF WORLDS · AI · MARKETING · WEB"
 PROMPT = "$ whoami"
 MANIFESTO = "one human. an army of AIs. zero limits."
 STATUS = "LIVE — MEXICO CITY"
@@ -202,9 +203,9 @@ def hero():
     kt = ";".join("%.4f" % (i / n) for i in range(n + 1))
     type_dur, type_begin = 2.6, 1.0
 
-    # ── órbita con los siete satélites (como en la portada de viajatech.com) ──
+    # ── órbita con los ocho satélites (como en la portada de viajatech.com) ──
     rx, ry, rot = 236, 76, -14
-    T, N, S = 26.0, 84, len(SATELLITES)          # periodo, muestras por vuelta (84 = múltiplo de 7)
+    T, N, S = 26.0, 88, len(SATELLITES)          # periodo, muestras por vuelta (88 = múltiplo de 8)
     pts = [(rx * math.cos(2 * math.pi * i / N), ry * math.sin(2 * math.pi * i / N)) for i in range(N)]
     ring = f'M {-rx} 0 A {rx} {ry} 0 1 1 {rx} 0 A {rx} {ry} 0 1 1 {-rx} 0'
     back, front = [], []
@@ -403,6 +404,13 @@ def cta(label, icon):
                         f'<animate attributeName="height" values="{h1};{h2};{h1}" dur="{d}s" repeatCount="indefinite"/>'
                         f'<animate attributeName="y" values="{30 - h1 / 2};{30 - h2 / 2};{30 - h1 / 2}" dur="{d}s" repeatCount="indefinite"/></rect>')
         ic = "".join(bars)
+    elif icon == "portal":  # portal del taxi entre mundos: anillo de bronce y la chispa que lo cruza (viajatech.com/mundos)
+        ic = f'''<g transform="translate(42 30)">
+  <circle r="17" fill="url(#halo)"/>
+  <ellipse rx="13" ry="7.5" fill="none" stroke="#C98F5A" stroke-width="1.6" stroke-opacity="0.9"/>
+  <ellipse rx="8" ry="4.6" fill="none" stroke="#C98F5A" stroke-width="1" stroke-opacity="0.5"/>
+  <circle r="2.6" fill="{GOLD_HI}"><animate attributeName="cx" values="-16;0;16" dur="2.2s" repeatCount="indefinite"/><animate attributeName="r" values="1.4;3.2;1.4" dur="2.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;0" dur="2.2s" repeatCount="indefinite"/></circle>
+</g>'''
     else:  # cometa que aterriza (sitios web para negocios)
         ic = f'''<g transform="translate(42 30)">
   <circle r="16" fill="url(#halo)"/>
@@ -478,6 +486,7 @@ if __name__ == "__main__":
     write("cta-chat.svg", cta("CHAT WITH ISABELLA", "orb"))
     write("cta-voice.svg", cta("TALK TO HER · VOICE", "wave"))
     write("cta-sitios.svg", cta("A WEBSITE FOR YOUR BUSINESS", "comet"))
+    write("cta-mundos.svg", cta("ENTER A WORLD", "portal"))
     for key, label in BUTTONS.items():
         write(f"btn-{key}.svg", button(label))
     write("footer-dark.svg", footer(dark=True))
