@@ -45,7 +45,7 @@ SATELLITES = [
     ("tienda", "#FF7A1A"),     # brasa
     ("codigo", "#B8C4D6"),     # acero
     ("stories", "#F472B6"),    # rosa
-    ("perfil", "#FFF4D6"),     # marfil
+    ("perfil", "#FFFFFF"),     # blanco: en el sitio Perfil es el eclipse del orbe (corona blanca; D-050)
     ("canales", "#FBBF24"),    # ámbar
 ]
 
