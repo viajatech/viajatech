@@ -79,6 +79,7 @@ BUTTONS = {  # archivo → etiqueta
     "x": "X",
     "threads": "THREADS",
     "facebook": "FACEBOOK",
+    "amazon": "AMAZON · BOOKS",
 }
 
 
@@ -411,6 +412,21 @@ def cta(label, icon):
   <ellipse rx="8" ry="4.6" fill="none" stroke="#4ADE80" stroke-width="1" stroke-opacity="0.5"/>
   <circle r="2.6" fill="{GOLD_HI}"><animate attributeName="cx" values="-16;0;16" dur="2.2s" repeatCount="indefinite"/><animate attributeName="r" values="1.4;3.2;1.4" dur="2.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;0" dur="2.2s" repeatCount="indefinite"/></circle>
 </g>'''
+    elif icon == "book":  # libro abierto que pasa sus páginas (los libros de David: página de autor en Amazon)
+        ic = f'''<g transform="translate(42 30)">
+  <circle r="17" fill="url(#halo)"/>
+  <path d="M-13 -8 Q-7 -11 -0.8 -8 V9 Q-7 6 -13 9 Z" fill="none" stroke="{GOLD}" stroke-width="1.6" stroke-linejoin="round"/>
+  <path d="M13 -8 Q7 -11 0.8 -8 V9 Q7 6 13 9 Z" fill="none" stroke="{GOLD}" stroke-width="1.6" stroke-linejoin="round"/>
+  <line x1="0" y1="-8.5" x2="0" y2="9.5" stroke="{GOLD_HI}" stroke-width="1.1" stroke-opacity="0.85"/>
+  <g stroke="{GOLD_HI}" stroke-width="1" stroke-linecap="round" stroke-opacity="0.5">
+    <line x1="-9.5" y1="-3.5" x2="-3.5" y2="-4.3"/><line x1="-9.5" y1="0.5" x2="-3.5" y2="-0.3"/><line x1="-9.5" y1="4.5" x2="-5.5" y2="4"/>
+    <line x1="3.5" y1="-4.3" x2="9.5" y2="-3.5"/><line x1="3.5" y1="-0.3" x2="9.5" y2="0.5"/><line x1="5.5" y1="4" x2="9.5" y2="4.5"/>
+  </g>
+  <path d="M0.8 -8 Q7 -11 12.4 -8.2 V8.2 Q7 5.6 0.8 8.4 Z" fill="{GOLD}" fill-opacity="0.22" stroke="{GOLD_HI}" stroke-width="0.9" stroke-opacity="0.9">
+    <animateTransform attributeName="transform" type="scale" values="1 1;1 1;0.04 1;-1 1;-1 1" keyTimes="0;0.45;0.62;0.8;1" dur="3.6s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;1;1;1;1;0" keyTimes="0;0.08;0.45;0.62;0.9;1" dur="3.6s" repeatCount="indefinite"/>
+  </path>
+</g>'''
     else:  # cometa que aterriza (sitios web para negocios)
         ic = f'''<g transform="translate(42 30)">
   <circle r="16" fill="url(#halo)"/>
@@ -487,6 +503,7 @@ if __name__ == "__main__":
     write("cta-voice.svg", cta("TALK TO HER · VOICE", "wave"))
     write("cta-sitios.svg", cta("A WEBSITE FOR YOUR BUSINESS", "comet"))
     write("cta-mundos.svg", cta("ENTER A WORLD", "portal"))
+    write("cta-books.svg", cta("READ A BOOK BY DAVID", "book"))
     for key, label in BUTTONS.items():
         write(f"btn-{key}.svg", button(label))
     write("footer-dark.svg", footer(dark=True))

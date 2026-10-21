@@ -25,7 +25,7 @@ Nunca pongas aquí datos privados, rutas locales, nombres de repos privados ni s
 |---|---|
 | `README.md` | El perfil. Texto real en Markdown (legible en celular e indexable); las imágenes van con `<picture>` para tema claro/oscuro |
 | `assets/hero.svg` | Banner animado 1280×480 (nombre, titular, núcleo con órbita y satélites, sinapsis, cometa, tecleo, chispas) |
-| `assets/cta-chat.svg`, `cta-voice.svg`, `cta-sitios.svg` | Botones grandes: hablar con Isabella (texto / voz en viajatech.com/isabella) y «a website for your business» (viajatech.com/sitios) |
+| `assets/cta-chat.svg`, `cta-voice.svg`, `cta-sitios.svg`, `cta-mundos.svg`, `cta-books.svg` | Botones grandes: hablar con Isabella (texto / voz en viajatech.com/isabella), «a website for your business» (viajatech.com/sitios), «enter a world» (viajatech.com/mundos) y «read a book by David» (página de autor en Amazon; D-055 de viajatech-web) |
 | `assets/sec-*-dark.svg` / `-light.svg` | Encabezados de sección 002–008 para cada tema |
 | `assets/btn-*.svg` | Botones de contacto (viajatech.com, viajatech.xyz, jettrendy.com, email, redes) |
 | `assets/footer-dark.svg` / `-light.svg` | Pie de terminal animado (`join --revolution`) |

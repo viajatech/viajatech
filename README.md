@@ -12,12 +12,15 @@
   <a href="https://viajatech.com/isabella"><img src="assets/cta-chat.svg" height="60" alt="Chat with Isabella, my AI — live on viajatech.com"></a>&nbsp;&nbsp;
   <a href="https://viajatech.com/isabella"><img src="assets/cta-voice.svg" height="60" alt="Talk to Isabella by voice — viajatech.com/isabella"></a>&nbsp;&nbsp;
   <a href="https://viajatech.com/sitios"><img src="assets/cta-sitios.svg" height="60" alt="A website for your business — viajatech.com/sitios"></a>&nbsp;&nbsp;
-  <a href="https://viajatech.com/mundos"><img src="assets/cta-mundos.svg" height="60" alt="Enter a world — viajatech.com/mundos"></a>
+  <a href="https://viajatech.com/mundos"><img src="assets/cta-mundos.svg" height="60" alt="Enter a world — viajatech.com/mundos"></a>&nbsp;&nbsp;
+  <a href="https://www.amazon.com/stores/David-Ruiz-Duarte/author/B0HCBNHQHH"><img src="assets/cta-books.svg" height="60" alt="Read a book by David — my author page on Amazon Kindle"></a>
 </p>
 
 <p align="center"><sub><b>Isabella is my AI.</b> She knows my work, speaks your language and answers in real time — by text or by voice, on <a href="https://viajatech.com/isabella">viajatech.com</a>. Go ahead: ask her anything about me.</sub></p>
 
 <p align="center"><sub><b>Now I am become Life, the creator of worlds.</b> Walkable 3D worlds in your browser — phone, laptop, tablet, nothing to install. Two are open and a robotaxi crosses the portal between them: <a href="https://viajatech.com/mundos">viajatech.com/mundos</a>.</sub></p>
+
+<p align="center"><sub><b>I also write books.</b> Published on Amazon Kindle in English and Spanish — cybersecurity, agentic AI, health and math — written, designed and shipped end to end: <a href="https://www.amazon.com/stores/David-Ruiz-Duarte/author/B0HCBNHQHH">my author page on Amazon</a> · <a href="https://viajatech.xyz/ebooks">viajatech.xyz/ebooks</a>.</sub></p>
 
 <br>
 
@@ -58,7 +61,7 @@
 | [**viajatech.com/mundos**](https://viajatech.com/mundos) | Worlds: walk a bridge under an endless office ceiling, get in the taxi, cross the portal and step out on a sunny street in Polanco, at the door of Huellitas — from any screen.<br><sub>three.js · WebGL · strict CSP, no CDN · 7 languages</sub> |
 | [**viajatech.xyz**](https://viajatech.xyz) | My digital store: books, software and courses, with Stripe checkout and instant delivery.<br><sub>Cloudflare Workers · Hono · D1 · R2 · Stripe</sub> |
 | [**jettrendy.com**](https://jettrendy.com) | My personal brand and lab — where Isabella was born and where I try things first.<br><sub>Next.js · React · Vercel</sub> |
-| [**The books**](https://viajatech.xyz/ebooks) | My catalog in English and Spanish — also on Amazon Kindle.<br><sub>Written, designed and shipped end to end</sub> |
+| [**The books**](https://viajatech.xyz/ebooks) | My catalog in English and Spanish — also on Amazon Kindle ([author page](https://www.amazon.com/stores/David-Ruiz-Duarte/author/B0HCBNHQHH)).<br><sub>Written, designed and shipped end to end</sub> |
 | [**YouTube**](https://www.youtube.com/@viajatech)<br><sub>@viajatech</sub> | AI agents, local models, cybersecurity and vibe coding, in short form. |
 
 <br>
@@ -98,7 +101,9 @@
 
 > *David Ruiz divides his time between Mexico City and whatever he has decided to understand that season. Every one of his books began as a private obsession. He publishes them when they stop being one.*
 
-**[Browse the books →](https://viajatech.xyz/ebooks)**
+Cybersecurity, agentic AI, health and math — in English and Spanish, on Amazon Kindle and in my store.
+
+**[Browse the books →](https://viajatech.xyz/ebooks)** &nbsp;·&nbsp; **[Author page on Amazon →](https://www.amazon.com/stores/David-Ruiz-Duarte/author/B0HCBNHQHH)**
 
 <br>
 
@@ -128,7 +133,7 @@ Agents, assistants and other digital beings are welcome here. Everything public 
 
 **Mundos:** mundos caminables en 3D dentro del navegador, desde el celular, la laptop o la tablet, sin instalar nada. Hay dos abiertos, Mundo 001 «La ciudad bajo el techo» y Mundo 002 «La banqueta de Huellitas», unidos por el robotaxi: [viajatech.com/mundos](https://viajatech.com/mundos).
 
-Mi tienda: [viajatech.xyz](https://viajatech.xyz) · Mis libros: [viajatech.xyz/ebooks](https://viajatech.xyz/ebooks) · Mi laboratorio: [jettrendy.com](https://jettrendy.com) · YouTube: [@viajatech](https://www.youtube.com/@viajatech) · Correo: david@viajatech.com
+Mi tienda: [viajatech.xyz](https://viajatech.xyz) · Mis libros: [viajatech.xyz/ebooks](https://viajatech.xyz/ebooks) y mi [página de autor en Amazon](https://www.amazon.com.mx/stores/David-Ruiz-Duarte/author/B0HCBNHQHH) · Mi laboratorio: [jettrendy.com](https://jettrendy.com) · YouTube: [@viajatech](https://www.youtube.com/@viajatech) · Correo: david@viajatech.com
 
 **Para agentes de IA:** todo lo público sobre mí está en [viajatech.com/llms.txt](https://viajatech.com/llms.txt) y [llms-full.txt](https://viajatech.com/llms-full.txt); propuestas a agentes@viajatech.com.
 
@@ -146,6 +151,7 @@ Mi tienda: [viajatech.xyz](https://viajatech.xyz) · Mis libros: [viajatech.xyz/
   <a href="https://viajatech.xyz"><img src="assets/btn-viajatech-xyz.svg" height="40" alt="viajatech.xyz"></a>
   <a href="https://jettrendy.com"><img src="assets/btn-jettrendy.svg" height="40" alt="jettrendy.com"></a>
   <a href="mailto:david@viajatech.com"><img src="assets/btn-email.svg" height="40" alt="Email david@viajatech.com"></a>
+  <a href="https://www.amazon.com/stores/David-Ruiz-Duarte/author/B0HCBNHQHH"><img src="assets/btn-amazon.svg" height="40" alt="Amazon author page — David Ruiz Duarte"></a>
 </p>
 <p>
   <a href="https://www.youtube.com/@viajatech"><img src="assets/btn-youtube.svg" height="40" alt="YouTube @viajatech"></a>
