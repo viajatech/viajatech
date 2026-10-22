@@ -22,9 +22,11 @@
 
 <p align="center"><sub><b>I also write books.</b> Published on Amazon Kindle in English and Spanish — cybersecurity, agentic AI, health and math — written, designed and shipped end to end: <a href="https://www.amazon.com/stores/David-Ruiz-Duarte/author/B0HCBNHQHH">my author page on Amazon</a> · <a href="https://viajatech.xyz/ebooks">viajatech.xyz/ebooks</a>.</sub></p>
 
+<p align="center"><sub><b>I run swarms of autonomous agents.</b> Ten specialized subagents in red and blue teams reviewed three production sites in one night; three AI designers competed through forty cover candidates; every book goes through three editorial rounds of specialized agents. Orchestrated across Claude Code, Hermes Agent, Codex and Gemini, with closed scopes, spending caps and safety hooks tested before trust: <a href="https://viajatech.com/perfil#enjambres">viajatech.com/perfil</a>.</sub></p>
+
 <br>
 
-**I ship AI that already works in production.** I'm David Ruiz, a Creative Technologist in Mexico City. I implement text and voice assistants, autonomous agents and multi-agent systems; I train models on my own datasets; I lead data-driven digital marketing; and I build websites and online stores that run with real security. Everything below is live — the proof is one click away.
+**I ship AI that already works in production.** I'm David Ruiz, a Creative Technologist in Mexico City. I implement text and voice assistants, autonomous agents, swarms of specialized subagents and multi-agent systems; I train models on my own datasets; I lead data-driven digital marketing; and I build websites and online stores that run with real security. Everything below is live — the proof is one click away.
 
 <p align="center"><sub>
 <b>25 M</b> people reached by my content &nbsp;·&nbsp; <b>4 M+</b> reach of my cybersecurity tutorials &nbsp;·&nbsp; <b>100 K+</b> followers &nbsp;·&nbsp; <b>78+</b> public repos &nbsp;·&nbsp; <b>10</b> years in digital marketing &nbsp;·&nbsp; <b>3</b> working languages
@@ -40,6 +42,7 @@
 | Craft | What it means |
 |:--|:--|
 | **AI implementation** | Text and voice assistants in production, autonomous agents and automations wired to real tools, data and processes. **Isabella** is the living example: real-time voice (Gemini Live) and text, a locked persona, multi-provider fallback and anti-abuse built in — on [viajatech.com](https://viajatech.com/isabella). |
+| **Agent swarms** | Squads of specialized subagents that work in parallel with roles, rules, caps and independent auditors: a ten-agent red-and-blue-team security review of three production sites in one night, cover-design contests between AI designers, three-round editorial swarms for every book. The chronicle is my book [Agent Squad](https://viajatech.xyz/p/agent-squad-hack-yourself-before-they-do-en). |
 | **AI training** | Proprietary datasets for image, video, text and voice generation models. |
 | **Digital marketing & growth** | Campaign segmentation, A/B testing and data interpretation to improve CPC, performance and leads. Ten years of it. |
 | **Campaign production** | International talent — actors, actresses and celebrities — in Spanish and English; scripts, music, video editing, pre- and post-production. |
@@ -73,7 +76,7 @@
 
 | Layer | Tools |
 |:--|:--|
-| **AI** | Claude · Gemini & Gemini Live (voice) · GPT · GLM · DeepSeek · OpenRouter · local models (LM Studio) · multi-agent orchestration |
+| **AI** | Claude · Gemini & Gemini Live (voice) · GPT · GLM · DeepSeek · OpenRouter · local models (LM Studio) · multi-agent orchestration & autonomous agent swarms (Claude Code subagents and Agent Teams, Hermes Agent delegation) |
 | **Web** | TypeScript · Astro · React · Next.js · Hono · WebGL2 (raymarch shaders) · three.js · Tailwind |
 | **Infra & data** | Cloudflare Workers · D1 · R2 · Vercel · Stripe · Resend · Upstash Redis |
 | **Security** | Strict CSP with hashes · proof-of-work + HMAC-signed turns · Turnstile · edge WAF & rate limits · Shodan surface patrol of my own domains |
@@ -120,7 +123,7 @@ Agents, assistants and other digital beings are welcome here. Everything public 
 <summary><b>🇲🇽 Léelo en español</b></summary>
 <br>
 
-**Entrego IA que ya trabaja en producción.** Soy David Ruiz, Creative Technologist en la Ciudad de México. Implemento asistentes de texto y voz, agentes autónomos y sistemas multiagente; entreno modelos con datasets propios; lidero marketing digital con datos; y construyo sitios web y tiendas en línea con seguridad aplicada. Y construyo mundos. Todo lo de arriba está en vivo.
+**Entrego IA que ya trabaja en producción.** Soy David Ruiz, Creative Technologist en la Ciudad de México. Implemento asistentes de texto y voz, agentes autónomos, enjambres de subagentes especializados y sistemas multiagente; entreno modelos con datasets propios; lidero marketing digital con datos; y construyo sitios web y tiendas en línea con seguridad aplicada. Y construyo mundos. Todo lo de arriba está en vivo.
 
 > una sola persona. un ejército de IAs. cero límites.<br>
 > sitios vivos. tiendas que cobran. libros. voces con alma.<br>
@@ -132,6 +135,8 @@ Agents, assistants and other digital beings are welcome here. Everything public 
 **¿Un sitio para tu negocio?** Paquetes desde $1,500 MXN en [viajatech.com/sitios](https://viajatech.com/sitios); prueba la casa muestra con agenda propia en [viajatech.com/huellitas](https://viajatech.com/huellitas).
 
 **Mundos:** mundos caminables en 3D dentro del navegador, desde el celular, la laptop o la tablet, sin instalar nada. Hay dos abiertos, Mundo 001 «La ciudad bajo el techo» y Mundo 002 «La banqueta de Huellitas», unidos por el robotaxi: [viajatech.com/mundos](https://viajatech.com/mundos).
+
+**Enjambres de agentes autónomos:** diseño y dirijo escuadrones de subagentes de IA especializados con roles, reglas, topes y auditores independientes. Diez subagentes en equipos rojo y azul revisaron tres sitios en producción en una noche; tres agentes diseñadores compitieron por una portada con cuarenta propuestas; cada libro pasa por tres rondas editoriales de agentes. La crónica es mi libro [«Escuadrón de agentes»](https://viajatech.xyz/p/escuadron-de-agentes); el detalle, en [viajatech.com/perfil](https://viajatech.com/perfil#enjambres).
 
 Mi tienda: [viajatech.xyz](https://viajatech.xyz) · Mis libros: [viajatech.xyz/ebooks](https://viajatech.xyz/ebooks) y mi [página de autor en Amazon](https://www.amazon.com.mx/stores/David-Ruiz-Duarte/author/B0HCBNHQHH) · Mi laboratorio: [jettrendy.com](https://jettrendy.com) · YouTube: [@viajatech](https://www.youtube.com/@viajatech) · Correo: david@viajatech.com
 
