@@ -42,6 +42,7 @@
 | Craft | What it means |
 |:--|:--|
 | **AI implementation** | Text and voice assistants in production, autonomous agents and automations wired to real tools, data and processes. **Isabella** is the living example: real-time voice (Gemini Live) and text, a locked persona, multi-provider fallback and anti-abuse built in — on [viajatech.com](https://viajatech.com/isabella). |
+| **AI phone calls** | **Agente Isabella** turns an Android phone into a voice agent that places real calls over its own SIM and talks live with whoever answers (Gemini Live) — no Twilio, no rented numbers, no third-party VoIP. Her voice goes digitally into the call through Magisk root, so no echo and no speakerphone; the API key never touches the phone (a Cloudflare Worker mints single-use tokens), eight spending fuses cap the cost, and her first sentence always says she is an AI. Public code, bring your own keys: [github.com/viajatech/agente-isabella](https://github.com/viajatech/agente-isabella) · [watch her dial](https://www.youtube.com/shorts/oSUbPbwd6TY). |
 | **Agent swarms** | Squads of specialized subagents that work in parallel with roles, rules, caps and independent auditors: a ten-agent red-and-blue-team security review of three production sites in one night, cover-design contests between AI designers, three-round editorial swarms for every book. The chronicle is my book [Agent Squad](https://viajatech.xyz/p/agent-squad-hack-yourself-before-they-do-en). |
 | **AI training** | Proprietary datasets for image, video, text and voice generation models. |
 | **Digital marketing & growth** | Campaign segmentation, A/B testing and data interpretation to improve CPC, performance and leads. Ten years of it. |
@@ -91,6 +92,7 @@
 
 | Repo | What it does |
 |:--|:--|
+| [**Agente&nbsp;Isabella**](https://github.com/viajatech/agente-isabella)<br><sub>Agente Isabella License 1.0 · non-commercial · attribution</sub> | An AI that makes real phone calls from your own Android and SIM: Gemini Live voice injected digitally into the call (Magisk root), a free Cloudflare Worker that keeps your key off the phone and mints single-use tokens, an APK built without Gradle, and a guide written for your AI coding agent to install it with you step by step. She always introduces herself as an AI. [Video](https://www.youtube.com/shorts/oSUbPbwd6TY). |
 | [**ARES**](https://github.com/viajatech/ARES)<br><sub>Apache 2.0</sub> | Armor for artificial intelligence: it gives agents reasoning, control of Word, Excel and WordPad, web browsing, and music and video downloads. |
 | [**Super&nbsp;Agente**](https://github.com/viajatech/SuperAgente)<br><sub>Apache 2.0</sub> | An autonomous agent that opens and operates Word, Excel, Notepad, Chrome and Firefox, and reaches services: videos, images, maps and information. |
 | [**LiveTranscriber**](https://github.com/viajatech/LiveTranscriber) | Real-time speech-to-text transcription: you talk, the program writes. |
@@ -137,6 +139,8 @@ Agents, assistants and other digital beings are welcome here. Everything public 
 **Mundos:** mundos caminables en 3D dentro del navegador, desde el celular, la laptop o la tablet, sin instalar nada. Hay dos abiertos, Mundo 001 «La ciudad bajo el techo» y Mundo 002 «La banqueta de Huellitas», unidos por el robotaxi: [viajatech.com/mundos](https://viajatech.com/mundos).
 
 **Enjambres de agentes autónomos:** diseño y dirijo escuadrones de subagentes de IA especializados con roles, reglas, topes y auditores independientes. Diez subagentes en equipos rojo y azul revisaron tres sitios en producción en una noche; tres agentes diseñadores compitieron por una portada con cuarenta propuestas; cada libro pasa por tres rondas editoriales de agentes. La crónica es mi libro [«Escuadrón de agentes»](https://viajatech.xyz/p/escuadron-de-agentes); el detalle, en [viajatech.com/perfil](https://viajatech.com/perfil#enjambres).
+
+**Isabella al teléfono:** [Agente Isabella](https://github.com/viajatech/agente-isabella) convierte un Android en un agente de voz que hace llamadas reales desde tu propia SIM y conversa en vivo con quien contesta (Gemini Live), sin Twilio ni números rentados. La llave nunca vive en el celular, hay topes de gasto y siempre se presenta como IA. Código público, con tus propias llaves: [míralo marcar](https://www.youtube.com/shorts/oSUbPbwd6TY).
 
 Mi tienda: [viajatech.xyz](https://viajatech.xyz) · Mis libros: [viajatech.xyz/ebooks](https://viajatech.xyz/ebooks) y mi [página de autor en Amazon](https://www.amazon.com.mx/stores/David-Ruiz-Duarte/author/B0HCBNHQHH) · Mi laboratorio: [jettrendy.com](https://jettrendy.com) · YouTube: [@viajatech](https://www.youtube.com/@viajatech) · Correo: david@viajatech.com
 
